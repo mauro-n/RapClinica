@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<SidebarWrapper />}>
+        <Route path='/consultas' element={<SidebarWrapper />}>
           <Route index element={<>oi</>} />
         </Route>
       </Routes>
