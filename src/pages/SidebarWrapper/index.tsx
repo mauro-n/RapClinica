@@ -20,7 +20,9 @@ export const SidebarWrapper = () => {
             <div className="absolute top-6 right-6 z-20">
                 <HamburguerBtn isOpen={isSidebarOpen} onClick={switchSidebar} />
             </div>
-            <Outlet />
+            <div className="pt-9 ps-6">
+                <Outlet />
+            </div>
         </div>
     )
 }

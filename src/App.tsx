@@ -1,6 +1,7 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { SidebarWrapper } from './pages/SidebarWrapper'
+import { DailyAppointmentPage } from './pages/DailyAppointmentPage'
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/consultas' element={<SidebarWrapper />}>
-          <Route index element={<>oi</>} />
+          <Route index element={<DailyAppointmentPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
