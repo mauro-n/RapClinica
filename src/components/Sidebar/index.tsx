@@ -4,7 +4,12 @@ import { faCalendar, faCoffee, faMagnifyingGlass, faPlus, faTv, faUser } from "@
 import { SideNavlinkDropdown } from "../SideNavlinkDropdown"
 import { Btn } from "../Btn"
 
-export const Sidebar = () => {
+interface Sidebar {
+    isExpanded?: boolean,
+    expandFunction?: any
+}
+
+export const Sidebar = ({ isExpanded = true }: Sidebar) => {
     const patientLinks = [
         <SideNavlink
             text="Buscar"
@@ -18,16 +23,14 @@ export const Sidebar = () => {
         />] as unknown as SideNavlink[]
 
     return (
-        <div className="absolute top-0 left-0 w-full h-screen flex justify-start">
-            <aside className="w-2/3 h-screen flex flex-col bg-white z-20">
-                <section>
-                    <header className="my-6">
-                        <h2 className="text-center font-black text-xl">
-                            RapClínica
-                        </h2>
-                    </header>
-                </section>
-                <section className="mb-6">
+        <div className={`absolute top-0 left-0 w-full h-screen flex justify-start`}>
+            <aside className={`w-2/3 h-screen flex flex-col bg-white z-20 transition-transform ${isExpanded ? "" : "-translate-x-full"}`}>
+                <header className="my-6">
+                    <h2 className="text-center font-black text-xl">
+                        RapClínica
+                    </h2>
+                </header>
+                <nav className="mb-6">
                     <h3 className="text-center text-blue-950 tracking-wide font-thin">
                         RECEPÇÃO
                     </h3>
@@ -58,7 +61,7 @@ export const Sidebar = () => {
                             </li>
                         </ul>
                     </nav>
-                </section>
+                </nav>
                 <section>
                     <hr />
                     <section className="text-center mt-6">
@@ -71,13 +74,6 @@ export const Sidebar = () => {
                     </section>
                 </section>
             </aside>
-            <div
-                className="absolute w-full h-full bg-black/5 z-10"
-                onClick={() => { console.log("fechar sidebar") }}
-            />
-            <div className="absolute top-6 right-6">
-                <FontAwesomeIcon icon={faPlus} className="rotate-45 text-blue-950 scale-150" />
-            </div>
         </div>
     )
 }
