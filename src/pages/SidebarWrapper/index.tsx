@@ -13,7 +13,7 @@ export const SidebarWrapper = () => {
 
     return (
         <>
-            <div className='relative w-screen md:flex h-screen'>
+            <div className='relative md:flex h-screen'>
                 <div className="md:border-e md:me-3 md:w-1/3 lg:w-1/5">
                     <Sidebar isExpanded={isSidebarOpen} />
                     <div
@@ -24,14 +24,20 @@ export const SidebarWrapper = () => {
                         <HamburguerBtn isOpen={isSidebarOpen} onClick={switchSidebar} />
                     </div>
                 </div>
-                <div className="pt-9 ps-6 md:w-2/3 lg:w-1/2">
+                <div className="pt-9 ps-4 flex-grow">
                     <Outlet />
                 </div>
-                <section className="hidden lg:block w-1/4">
-                    <h2 className="mt-12">
+                <section className="hidden lg:block w-1/4 pt-12">
+                    <h2 className="mb-5 text-xl text-blue-950 font-medium">
                         Próximas Consultas
                     </h2>
-                    <ul>
+                    <ul className="flex flex-col gap-y-3 overflow-y-scroll pe-4">
+                        <li>
+                            <AppointmentCard />
+                        </li>
+                        <li>
+                            <AppointmentCard />
+                        </li>
                         <li>
                             <AppointmentCard />
                         </li>
