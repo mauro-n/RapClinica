@@ -15,21 +15,21 @@ export const DayAppointmentsMobile = () => {
                     <td>
                         <div className="bg-red-500 rounded-full block w-2 h-2"></div>
                     </td>
-                    <td>Luciano Santigado Pato</td>
+                    <td>Lorem ipsum dolor sit.</td>
                     <td>18:00</td>
                 </tr>
                 <tr className="border-b">
                     <td>
                         <div className="bg-red-500 rounded-full block w-2 h-2"></div>
                     </td>
-                    <td>Luciano Santigado Pato</td>
+                    <td>Lorem ipsum dolor sit.</td>
                     <td>18:00</td>
                 </tr>
                 <tr className="border-b">
                     <td>
                         <div className="bg-red-500 rounded-full block w-2 h-2"></div>
                     </td>
-                    <td>Luciano Santigado Pato</td>
+                    <td>Lorem ipsum dolor sit.</td>
                     <td>18:00</td>
                 </tr>
             </tbody>
