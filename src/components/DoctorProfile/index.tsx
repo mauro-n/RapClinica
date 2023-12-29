@@ -10,7 +10,7 @@ export const DoctorProfile = ({
     name = "lorem ipsum", profilePic = "https://placehold.co/300x300"
 }: DoctorProfile) => {
     return (
-        <figure className="flex items-center gap-2">
+        <figure className="flex items-center gap-2 md:flex-col justify-center">
             <img
                 src={profilePic}
                 alt="Doctor's Photo"

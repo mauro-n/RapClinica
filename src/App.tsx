@@ -9,6 +9,7 @@ import { DoctorAppointments } from './components/DoctorAppointments'
 import { DayAppointmentsMobile } from './components/DayAppointmentsMobile'
 
 function App() {
+
   return (
     <BrowserRouter>
       <Routes>
