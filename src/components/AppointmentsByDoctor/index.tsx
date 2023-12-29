@@ -1,5 +1,4 @@
 import { useOutletContext } from "react-router-dom"
-import { DoctorCard } from "../DoctorCard"
 import React, { useEffect, useState } from "react";
 import { DayAppointmentsTable } from "../DayAppointmentsTable";
 
