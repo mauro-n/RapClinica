@@ -24,7 +24,7 @@ export const SidebarWrapper = () => {
                         <HamburguerBtn isOpen={isSidebarOpen} onClick={switchSidebar} />
                     </div>
                 </div>
-                <div className="pt-9 ps-4 flex-grow">
+                <div className="pt-9 ps-4 flex-grow md:w-1/3">
                     <Outlet />
                 </div>
                 <section className="hidden lg:block w-1/4 pt-12">

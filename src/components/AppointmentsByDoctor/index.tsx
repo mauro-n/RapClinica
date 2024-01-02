@@ -36,7 +36,6 @@ export const AppointmentsByDoctor = () => {
             }, [])
 
             setFormated(renderAppointments)
-            console.log(formatted)
         }
 
     }, [appointments])
@@ -48,7 +47,7 @@ export const AppointmentsByDoctor = () => {
             <h2 className="text-lg text-blue-950 font-medium">
                 Consultas por médicos:
             </h2>
-            <DayAppointmentsTable hours={hours} />
+            <DayAppointmentsTable hours={hours} data={formatted} />
         </section>
     )
 }
