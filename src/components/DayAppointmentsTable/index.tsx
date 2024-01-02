@@ -31,13 +31,17 @@ export const DayAppointmentsTable = ({ hours, data }: DayAppointmentsTable) => {
     }
 
     const createTableBody = (hours: string[], data: any) => {
+        
         const filterTime = (hour: string) => {
             const date = new Date(hour)
-            console.log(date)
-            // if () {
-            //     return true
-            // }
-            // return false
+            const nDate = new Date(hour)
+            
+            if (date.getHours() >= nDate.getHours() &&
+                date.getHours() < nDate.getHours() + 1) {
+                return true
+            }
+            
+            return false
         }
 
         filterTime("2018-10-12T14:37:37.083Z")
