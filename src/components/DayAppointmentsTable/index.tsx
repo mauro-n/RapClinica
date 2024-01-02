@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { DoctorCard } from '../DoctorCard'
 import { DoctorProfile } from '../DoctorProfile'
 
 interface DayAppointmentsTable {
