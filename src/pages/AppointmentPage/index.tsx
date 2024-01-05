@@ -2,10 +2,11 @@ import { useEffect, useState } from "react"
 import { Outlet } from "react-router-dom"
 
 interface AppointmentPage {
-    header: React.ReactNode
+    header: React.ReactNode,
+    headerPos?: "top" | "bottom"
 }
 
-export const AppointmentPage = ({ header }: AppointmentPage) => {
+export const AppointmentPage = ({ header, headerPos = "top" }: AppointmentPage) => {
     const [appointments, setAppointments] = useState()
 
     const fetchAppointments = async () => {
@@ -20,10 +21,11 @@ export const AppointmentPage = ({ header }: AppointmentPage) => {
 
     return (
         <div className="pe-6">
-            {header}
+            {headerPos=="top" ? header : <></>}            
             <div className="mt-5">
                 <Outlet context={{ appointments, setAppointments }} />
             </div>
+            {headerPos=="bottom" ? header : <></>}
         </div>
     )
 }

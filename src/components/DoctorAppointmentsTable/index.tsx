@@ -1,19 +1,18 @@
 import { useEffect, useState } from 'react'
 import { DoctorProfile } from '../DoctorProfile'
 
-interface DayAppointmentsTable {
+interface DoctorAppointmentsTable {
     hours: string[],
     data: any[]
 }
 
-export const DayAppointmentsTable = ({ hours, data }: DayAppointmentsTable) => {
+export const DoctorAppointmentsTable = ({ hours, data }: DoctorAppointmentsTable) => {
 
     const [TableHeaders, setTableHeaders] = useState<JSX.Element[]>()
     const [TableBody, setTableBody] = useState<JSX.Element[]>()
 
     const createTableHeaders = (data: any[]) => {
         const doctors = []
-
         for (let doctor in data) {
             doctors.push(doctor)
         }
@@ -21,49 +20,56 @@ export const DayAppointmentsTable = ({ hours, data }: DayAppointmentsTable) => {
         const ths: JSX.Element[] = doctors.map((doctor) => {
             return (
                 <th key={doctor}>
-                    <DoctorProfile name={doctor} />
+                    <DoctorProfile className='px-3' pSize='sm' name={doctor} />
                 </th>
             )
         })
 
-        ths.unshift(<th key={"thead-time"}>Horários</th>)
+        ths.unshift(<th key={"thead-time"} className='text-transparent cursor-default'>Horários</th>)
         return ths
     }
 
     const createTableBody = (hours: string[], data: any) => {
-        
-        const filterTime = (hour: string) => {
+        const filterTime = (hour: string, appointments: any[]) => {
             const date = new Date(hour)
-            const nDate = new Date(hour)
-            
-            if (date.getHours() >= nDate.getHours() &&
-                date.getHours() < nDate.getHours() + 1) {
-                return true
-            }
-            
-            return false
+
+            return appointments.filter((appointment) => {
+                if (new Date(appointment.schedule).getHours() >= date.getHours() ||
+                    new Date(appointment.schedule).getHours() < date.getHours()) {
+                        return true;
+                }
+            })
+
+        }        
+
+        for (let x in data) {
+            //console.log(data[x])
         }
 
-        filterTime("2018-10-12T14:37:37.083Z")
+        let cols = []
+        const table = hours.map((hour) => {
+            cols = filterTime(hour, data)            
 
-        return hours.map((hour) => {
             return (
                 <tr key={hour}>
-                    <td>{hour}</td>
-                    {data.map((el: any, j: number) => {
-                        console.log(el)
-                        return <div key={j}></div>
-                    })}
+                    <td className='border'>
+                        <div className='text-center'>
+                            {hour}
+                        </div>
+                    </td>
+                    
+
                 </tr>
             )
         })
+
+        return table
 
     }
 
 
     useEffect(() => {
         if (!data) return
-        console.log(data)
         setTableHeaders(createTableHeaders(data))
         setTableBody(createTableBody(hours, data))
     }, [data])
@@ -78,7 +84,7 @@ export const DayAppointmentsTable = ({ hours, data }: DayAppointmentsTable) => {
             <tbody>
                 {TableBody}
             </tbody>
-            
+
         </table>
     )
 }
